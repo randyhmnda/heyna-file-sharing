@@ -115,6 +115,10 @@ class Telegram {
     };
   }
 
+  async postInChannel(channelId: number, message: string) {
+    return this.app.telegram.sendMessage(channelId, message);
+  }
+
   addMessage(chatId: number, messageId: number) {
     const messages = this.messages.get(chatId) || [];
     messages.push(messageId);
