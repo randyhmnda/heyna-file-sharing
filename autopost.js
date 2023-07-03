@@ -42,7 +42,5 @@ async function autopost() {
 
   const post = await telegram.postInChannel(autopostChannelId, urlToPost);
   console.log("postId", post.message_id);
-
-  return telegram.app.stop();
 }
 autopost();
