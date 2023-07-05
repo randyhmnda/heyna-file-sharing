@@ -13,9 +13,7 @@ async function autopost() {
   console.log("App started!");
 
   await database.initialize();
-  await telegram.initialize();
-
-  console.log("Telegram and Database started!");
+  console.log("Database started!");
 
   const messageIdsUrl = env.MESSAGE_IDS_URL;
   const dbChannelId = Number(env.DB_CHANNEL_ID);
@@ -41,6 +39,8 @@ async function autopost() {
   console.log("urlToPost:", urlToPost);
 
   const post = await telegram.postInChannel(autopostChannelId, urlToPost);
-  console.log("postId", post.message_id);
+  console.log("resultchannelPostId", post.message_id);
+
+  process.exit();
 }
 autopost();
